@@ -1,1 +1,40 @@
-Hello
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type="text/css" href="{% static 'css/home.css'%}">
+    <title>Landing Page Design Using HTML & CSS</title>
+</head>
+<body>
+  <div class="container-fluid">
+    
+    <p></p>
+    {% for cv in cvs %}
+       {{cv}}
+       {% for prod in cv.get_products %}
+       <p>{{ prod }}</p>
+    
+        {% endfor %}
+    {% endfor %}
+    <div class="container">
+        <div class="header">
+            <button class="btn" id="btn1" > <a href="http://127.0.0.1:8000/login/">Log In</a> </button>
+            <button class="btn" id="btn2" > <a href="http://127.0.0.1:8000/registration/">Sign Up</a> </button>
+        </div>
+        <div class="content">
+            <div class="text">
+            <h1><span>SwiftCV</span></h1><br>
+            <h3>Your CV is just a few clicks away</h3>
+            <button class="btn3">See Templates</button>
+           </div>
+        <div class="pepsi">
+        <img src="images/background.jpeg" alt="">
+        </div>
+       </div>
+   </div>
+</body>
+</html>
+ 
