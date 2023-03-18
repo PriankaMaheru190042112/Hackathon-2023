@@ -10,25 +10,25 @@ class TestViews(TestCase):
         self.signup_url = reverse('signup')
         self.login_url = reverse('login')
         self.user_data = {
-            'Firstname': 'testuser2',
+            'Firstname': 'hey',
             'Lastname': 'testuserlastname',
-            'Email': 'testuser23@example.com',
+            'Email': 'hey@example.com',
             'Password': 'testpass',
             'Retype': 'testpass'
         }
-        self.user = User.objects.create_user(username= 'testuser',first_name='testuser',last_name='testuserlastname',email='testuser@example.com',password='testpass')
+        self.user = User.objects.create_user(username= 'hello1',first_name='hello',last_name='testuserlastname',email='hello1@example.com',password='testpass')
 
     def test_signup_view(self):
         response = self.client.post(self.signup_url, self.user_data)
         self.assertEqual(response.status_code, status.HTTP_302_FOUND)
-        self.assertTrue(User.objects.filter(username='testuser').exists())
+        self.assertTrue(User.objects.filter(username='hello1').exists())
 
     def test_login_view(self):
-        response = self.client.post(self.login_url, {'username': 'testuser', 'psw': 'testpass'})
+        response = self.client.post(self.login_url, {'username': 'hello1', 'psw': 'testpass'})
         self.assertEqual(response.status_code, status.HTTP_302_FOUND)
         self.assertTrue(response.url, reverse('index'))
 
     def test_invalid_login_view(self):
-        response = self.client.post(self.login_url, {'username': 'testuser', 'psw': 'wrongpass'})
+        response = self.client.post(self.login_url, {'username': 'hello1', 'psw': 'wrongpass'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertContains(response, "Username or password is incorrect!!!")
