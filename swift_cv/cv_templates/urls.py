@@ -8,4 +8,4 @@ from . import views
 urlpatterns = [
     path('template', views.templates, name='templates'),
    
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
