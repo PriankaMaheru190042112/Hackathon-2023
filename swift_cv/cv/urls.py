@@ -9,5 +9,5 @@ urlpatterns = [
     path('home',home.as_view(), name='home'),
     path('create',views.create_cv, name='create'),
     path('preview',cvPreview.as_view(),name='preview'),
-    path('update',views.update, name='update' )
+    path('update',views.update, name='update' ),
 ]
