@@ -7,14 +7,16 @@ from .models import *
 # Create your views here.
 def home(request):
     cvs= CV_type.objects.all()
-
+    cvlists= CV.objects.all()
     context={
-        'cvs': cvs
+        'cvs': cvs,
+        'cvlists': cvlists
     }
     return render(request, 'home.html', context)
     
 
 def create_cv(request):
+    
     if request.method == "POST":
         name = request.POST.get('name')
         email= request.POST.get('email')
@@ -53,11 +55,16 @@ def create_cv(request):
         u.save()
         return redirect('/create')
         
-        
+    
     return render(request, 'create_cv.html')
  
-class cvPreview(TemplateView):
-    template_name= 'preview_cv.html'
+def cvPreview(request):
+    cvs= CV.objects.all()
+    context={
+          'cvs':cvs
+    }
+
+    return render(request, 'preview_cv.html',context)
 
 def update(request):
     return render(request, 'update_cv.html')

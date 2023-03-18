@@ -32,6 +32,13 @@
         <div class="pepsi">
         <img src="images/background.jpeg" alt="">
         </div>
+
+        <div>
+            {% for cvlist in cvlists %}
+         {{cvlist.cv_id}}
+            {% endfor %}
+        </div>
+
        </div>
    </div>
 </body>

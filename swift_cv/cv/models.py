@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from registration.models import User
 
 # Create your models here.
@@ -14,6 +15,9 @@ class CV(models.Model):
 
     def __str__(self):
         return str(self.cv_id)
+    
+    def get_absolute_url1(self):
+        return reverse('cv:home', kwargs={'pk': self.pk})
 
 class Institution(models.Model):
     cv_id= models.ForeignKey(CV, on_delete=models.CASCADE)
