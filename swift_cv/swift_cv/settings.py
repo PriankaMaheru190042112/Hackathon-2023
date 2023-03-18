@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cv',
     'registration',
+    'user',
+    'cv_templates',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
