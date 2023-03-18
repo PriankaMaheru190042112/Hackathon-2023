@@ -53,7 +53,7 @@ def create_cv(request):
         
             
         u.save()
-        return redirect('/create')
+        return redirect('/preview')
         
     
     return render(request, 'create_cv.html')
