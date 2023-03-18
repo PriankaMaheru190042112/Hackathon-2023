@@ -6,8 +6,8 @@ from .views import home, cvPreview
 
 
 urlpatterns = [
-    path('home',home.as_view(), name='home'),
+    path('home',views.home, name='home'),
     path('create',views.create_cv, name='create'),
     path('preview',cvPreview.as_view(),name='preview'),
     path('update',views.update, name='update' ),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
