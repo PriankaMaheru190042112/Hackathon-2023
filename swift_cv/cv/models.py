@@ -5,7 +5,7 @@ from registration.models import User
 class CV(models.Model):
     cv_id= models.AutoField(primary_key=True)
     name= models.CharField(max_length=200)
-    email=models.ForeignKey(User, on_delete=models.CASCADE)
+    email=models.CharField(max_length=200)
     phone_number= models.IntegerField(max_length=200)
     image=models.ImageField(upload_to='media/',max_length=200)
     linked_in=models.CharField(max_length=200)
