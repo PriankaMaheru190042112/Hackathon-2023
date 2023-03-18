@@ -1,130 +1,204 @@
-<!-- <!DOCTYPE html>
-<html>
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {
-  box-sizing: border-box;
-}
+  <meta charset="UTF-8">
+  <title>Create CV</title>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+<link rel='stylesheet' type="text/css" href="{% static 'css/style.css'%}">
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #7E7BB9;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 25%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 75%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-</style>
 </head>
 <body>
-
-<h2>Create Your Profile </h2>
-<p>Fill the form with necessary information:</p>
-
+<!-- partial:index.partial.html -->
 <div class="container">
-  <form action="/action_page.php">
-    <div class="row">
-      <div class="col-25">
-        <label for="fname">First Name</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="lname">Last Name</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="country">Country</label>
-      </div>
-      <div class="col-75">
-        <select id="country" name="country">
-          <option value="bangladesh">Bangladesh</option>
-          <option value="canada">Canada</option>
-          <option value="usa">USA</option>
-        </select>
-      </div>
-    </div>
-	<div class="col-25">
-	<label for="subject">Photo</label>
-	</div>
-    <div class="row">
-	
-	  <div>
-		<label for="avatar">Choose a profile picture:</label>
-		<input type="file"id="avatar" name="avatar"accept="image/png, image/jpeg">
-	  </div>
-	  <div class="col-25">
-        <label for="subject">Subject</label>
-      </div>
-      <div class="col-75">
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
-  </form>
-</div>
+	<div class="screen">
+		<form action="/create" method="post" enctype="multipart/form-data" name="cvform" id="myUniqueUploadId">{% csrf_token %}
+       
+			<div class="form-group">
+			  <label for="name"> Name</label>
+			  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+			  
+			</div>
+			<div class="form-group">
+				<label for="name"> Email</label>
+				<input type="Email" class="form-control" id="email" name="email" placeholder="Enter your email">
+				
+			  </div>
+			<div class="form-group">
+			  <label for="phone">Phone</label>
+			  <input  type="number" class="form-control" id="phone" name="phone" placeholder="Enter phone number">
+			  
+			</div>
+		    <div class="form-group">
+				<label for="linked_in">Linked IN</label>
+				<input type="text" class="form-control" id="linked_in" name="linked_in" placeholder="Enter linked in profile">
+				
+			  </div>
+			  <div class="form-group">
+				<label for="github">Github</label>
+				<input type="text" class="form-control" id="github" name="github" placeholder="Enter github profile">
+				
+			  </div>
 
+
+			  <div class="form-group">
+				<label for="image">Upload your image</label> <br>
+			  <input type="file" accept="image/*" name="image"> 
+			  </div>
+			
+	  
+			  <div class="wrapper">
+				<div id="inst">
+				  <input type="text" name="inst_name" class="inst" size="50" placeholder="Institution name">
+				  <input type="text" name="result" class="inst" size="50" placeholder="Result">
+				
+				</div>
+				<div class="controls">
+				  <a href="#" id="add_more_fields"><i class="fa fa-plus"></i>Add More</a>
+				  <a href="#" id="remove_fields"><i class="fa fa-plus"></i>Remove Field</a>
+				</div>
+			  </div>
+		
+
+			  <div class="wrapper">
+				<div id="skill">
+				  <input type="text" name="skill_name" class="skill" size="50" placeholder="Skill">
+				
+				</div>
+				<div class="controls">
+				  <a href="#" id="add_more_skill_fields"><i class="fa fa-plus"></i>Add More</a>
+				  <a href="#" id="remove_skill_fields"><i class="fa fa-plus"></i>Remove Field</a>
+				</div>
+			  </div>
+
+			  <div class="wrapper">
+				<div id="ach">
+				  <input type="text" name="ach_name" class="ach" size="50" placeholder="Achievent">
+				
+				</div>
+				<div class="controls">
+				  <a href="#" id="add_more_ach_fields"><i class="fa fa-plus"></i>Add More</a>
+				  <a href="#" id="remove_ach_fields"><i class="fa fa-plus"></i>Remove Field</a>
+				</div>
+			  </div>
+		
+			<button type="submit" class="btn btn-success">Submit</button>
+		
+		  </form>
+	</div>
+</div>
+<!-- partial -->
+ <script>
+
+var inst = document.getElementById('inst');
+var skill = document.getElementById('skill');
+var ach= document.getElementById('ach');
+var add_more_fields = document.getElementById('add_more_fields');
+var remove_fields = document.getElementById('remove_fields');
+
+var add_more_skill_fields = document.getElementById('add_more_skill_fields');
+var remove_skill_fields = document.getElementById('remove_skill_fields');
+
+
+var add_more_ach_fields = document.getElementById('add_more_ach_fields');
+var remove_ach_fields = document.getElementById('remove_ach_fields');
+
+
+
+
+
+
+
+add_more_fields.onclick = function(){
+  var newField1 = document.createElement('input');
+  var newField2 = document.createElement('input');
+
+  
+  newField1.setAttribute('type','text');
+  newField1.setAttribute('name','inst_name');
+  newField1.setAttribute('class','inst');
+  newField1.setAttribute('siz',50);
+  newField1.setAttribute('placeholder','Institution Name');
+
+  newField2.setAttribute('type','text');
+  newField2.setAttribute('name','result');
+  newField2.setAttribute('class','inst');
+  newField2.setAttribute('siz',50);
+  newField2.setAttribute('placeholder','Result');
+
+
+ 
+
+
+  inst.appendChild(newField1);
+  inst.appendChild(newField2);
+
+
+  
+}
+
+remove_fields.onclick = function(){
+  var input_tags = inst.getElementsByTagName('input');
+  var skill_tags = skill.getElementsByTagName('input');
+  
+  if(input_tags.length > 2) {
+    inst.removeChild(input_tags[(input_tags.length) - 1]);
+  }
+  
+}
+
+
+
+add_more_skill_fields.onclick = function(){
+	var skillfield= document.createElement('input')
+
+	skillfield.setAttribute('type','text');
+	skillfield.setAttribute('name','skill_name');
+	skillfield.setAttribute('class','skill');
+	skillfield.setAttribute('siz',50);
+	skillfield.setAttribute('placeholder','Add Skill');
+	skill.appendChild(skillfield);
+
+  
+}
+
+remove_skill_fields.onclick = function(){
+	var skill_tags = skill.getElementsByTagName('input');
+	
+
+	  skill.removeChild(skill_tags[(skill_tags.length) - 1]);
+	
+  
+  
+  }
+
+
+  add_more_ach_fields.onclick = function(){
+	var achfield= document.createElement('input')
+
+	achfield.setAttribute('type','text');
+	achfield.setAttribute('name','ach_name');
+	achfield.setAttribute('class','');
+	achfield.setAttribute('siz',50);
+	achfield.setAttribute('placeholder','Add Achievent');
+	ach.appendChild(achfield);
+
+  
+}
+
+remove_ach_fields.onclick = function(){
+	var ach_tags = ach.getElementsByTagName('input');
+	
+
+	  ach.removeChild(ach_tags[(ach_tags.length) - 1]);
+	
+  
+  
+  }
+	
+ </script>
 </body>
-</html> -->
+</html>

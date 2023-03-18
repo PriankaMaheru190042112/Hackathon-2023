@@ -39,7 +39,7 @@ def LoginPage(request):
         user = authenticate(request, username=username, password=psw)
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('home')
         else:
             return HttpResponse ("Username or password is incorrect!!!")
 
