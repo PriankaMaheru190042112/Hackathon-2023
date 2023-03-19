@@ -21,8 +21,6 @@
     {% endfor %}
     <div class="container">
         <div class="header">
-            <button class="btn" id="btn1">Log In</button>
-            <button class="btn" id="btn2">Sign Up</button>
         </div>
         <div class="content">
             <div class="text">
@@ -33,6 +31,13 @@
         <div class="pepsi">
         <img src="images/background.jpeg" alt="">
         </div>
+
+        <div>
+            {% for cvlist in cvlists %}
+         {{cvlist.cv_id}}
+            {% endfor %}
+        </div>
+
        </div>
    </div>
 </body>

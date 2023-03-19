@@ -1,11 +1,12 @@
 from django.db import models
+from django.urls import reverse
 from registration.models import User
 
 # Create your models here.
 class CV(models.Model):
     cv_id= models.AutoField(primary_key=True)
     name= models.CharField(max_length=200)
-    email=models.ForeignKey(User, on_delete=models.CASCADE)
+    email=models.CharField(max_length=200)
     phone_number= models.IntegerField(max_length=200)
     image=models.ImageField(upload_to='media/',max_length=200)
     linked_in=models.CharField(max_length=200)
@@ -14,6 +15,9 @@ class CV(models.Model):
 
     def __str__(self):
         return str(self.cv_id)
+    
+    def get_absolute_url1(self):
+        return reverse('cv:home', kwargs={'pk': self.pk})
 
 class Institution(models.Model):
     cv_id= models.ForeignKey(CV, on_delete=models.CASCADE)
