@@ -1,0 +1,153 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type="text/css" href="{% static 'css/navigation.css'%}">
+    <title>Document</title>
+
+
+
+
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <!--Top menu -->
+        <div class="sidebar">
+           <!--profile image & text-->
+            <!--menu item-->
+            <div class="profile">
+                <h2>SwiftCV</h2>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="#" class="active">
+                        {% comment %} <span class="icon"><i class="fas fa-home"></i></span> {% endcomment %}
+                        <span class="item">Create CV</span>
+                    </a>
+                </li>
+                {% comment %} <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item"></span>
+                    </a>
+                </li> {% endcomment %}
+                {% comment %} <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">People</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="item">Perfomance</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <span class="item">Development</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-shield"></i></span>
+                        <span class="item">Admin</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="item">Settings</span>
+                    </a>
+                </li> {% endcomment %}
+            </ul>
+        </div>
+        <div class="section">
+            <div class="top_navbar">
+                <div class="hamburger">
+                    <a href="#">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+    
+        </div>
+        
+        
+        <div class="product-grid" border-style: solid>
+            <div><h2>Catagory: Business</h2>
+                <div class="product">
+                <button type="submit">
+                    <img src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/outstanding_9.png?v=1.0.1" alt="buttonpng" border="0" />
+                </button>
+                <h3 class="product-title">Formal</h3>
+                </div>
+                <div class="product">
+                <button type="submit">
+                    <img src="https://w7.pngwing.com/pngs/178/85/png-transparent-cv-resume-template.png" alt="Product 2">
+                </button>
+                <h3 class="product-title">Classic</h3>
+                </div>
+                <div class="product">
+                <button type="submit">
+                    <img src="https://res-academy.cache.wpscdn.com/images/seo_posts/20220823/1344453f1f70ac6cf6e595af27bf4f53.png" alt="Product 3">
+                </button>
+                <h3 class="product-title">Minimal</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-grid" border-style: solid>
+            <div><h2>Catagory: Art & Craft</h2>
+            <div class="product">
+                <button type="submit">
+                    <img src="https://www.goodcv.com/images/cv/screenshots/thumbs/en/outstanding_9.png?v=1.0.1" alt="" border="0" />
+                </button>
+                <h3 class="product-title">Formal</h3>
+                </div>
+                <div class="product">
+                <button type="submit">
+                    <img src="https://w7.pngwing.com/pngs/178/85/png-transparent-cv-resume-template.png" alt="">
+                </button>
+                <h3 class="product-title">Classic</h3>
+                </div>
+                <div class="product">
+                <button type="submit">
+                    <img src="https://res-academy.cache.wpscdn.com/images/seo_posts/20220823/1344453f1f70ac6cf6e595af27bf4f53.png" alt="">
+                </button>
+                <h3 class="product-title">Minimal</h3>
+            </div>
+        </div>
+
+
+
+            
+
+        
+        
+        
+
+    </div>
+    
+  <script>
+    var hamburger = document.querySelector(".hamburger");
+    hamburger.addEventListener("click", function(){
+        document.querySelector("body").classList.toggle("active");
+    })
+  </script>
+</body>
+</html>

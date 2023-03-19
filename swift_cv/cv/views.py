@@ -22,3 +22,6 @@ class cvPreview(TemplateView):
 
 def update(request):
     return render(request, 'update_cv.html')
+
+def navigation(request):
+    return render(request, 'navigation.html')

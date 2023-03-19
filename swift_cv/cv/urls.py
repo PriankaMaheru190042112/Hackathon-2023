@@ -10,4 +10,5 @@ urlpatterns = [
     path('create',views.create_cv, name='create'),
     path('preview',cvPreview.as_view(),name='preview'),
     path('update',views.update, name='update' ),
+    path('navigation',views.navigation, name='navigation'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
